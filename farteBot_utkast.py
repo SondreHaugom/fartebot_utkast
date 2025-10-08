@@ -61,7 +61,14 @@ def chat_with_gpt():
             model="gpt-4.1", 
             input= user_input,
             previous_response_id=response_ID,
-            instructions= " Du er en hjelpsom kundeserviceassistent. Bruk tilgjengelige verktøy for å hjelpe kunden med deres forespørsel. Hvis du trenger informasjon om refusjonsprosessen, bruk 'refund_instructions' funksjonen.",
+            instructions= """ 
+            Du er en hjelpsom kundeserviceassistent.
+            Hvis brukeren spør om refusjoner eller angrerett:
+                1. Bruk file_search for å hente relevant informasjon fra vector store.
+                2. Send den hentede teksten som 'info_from_docs' til refund_instructions.
+                3. Presentér deretter resultatet for brukeren.
+            Hvis spørsmålet ikke handler om refusjon, svar som vanlig.
+""",
             tools=tools  
            
         )
