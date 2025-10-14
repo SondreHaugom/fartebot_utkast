@@ -29,6 +29,7 @@ tools = [
             "required": ["info_from_docs"]
         }
     },
+    # Legger til file_search verktøyet for å hente informasjon fra vector store
     {
         "type": "file_search",
         "vector_store_ids": [VECTOR_STORE_ID]
@@ -68,6 +69,8 @@ def chat_with_gpt():
                 2. Send den hentede teksten som 'info_from_docs' til refund_instructions.
                 3. Presentér deretter resultatet for brukeren.
             Hvis spørsmålet ikke handler om refusjon, svar som vanlig.
+
+            Husk!!! at dette er brukere som du ikke har noe kjenskap til fra før og at du oppfører deg deretter.
 """,
             tools=tools  
            
